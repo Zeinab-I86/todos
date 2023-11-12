@@ -4,6 +4,9 @@ class Todo {
     this.description = description
   }
 
-  todoList= []
-
+  todoList = []
+  
+  getTodos() {
+    
+  }
 }
