@@ -9,4 +9,8 @@ class Todo {
   getTodos() {
     return {task: this.task, description: this.description}
   }
+
+  addTodo(newTask) {
+    this.todoList.push(newTask)
+  }
 }
