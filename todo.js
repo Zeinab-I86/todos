@@ -7,6 +7,6 @@ class Todo {
   todoList = []
   
   getTodos() {
-    
+    return {task: this.task, description: this.description}
   }
 }
