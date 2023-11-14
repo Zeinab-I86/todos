@@ -1,4 +1,5 @@
-import Todo from "./todo"
+
+import Todo from "./todo.js"
 
 
 const tasks = new Todo("Study", "Learn JavaScript")
@@ -11,3 +12,5 @@ console.log(tasks.getTodoList())
 
 let toDos = tasks.getTodoList()
 console.log(tasks)
+
+toDos.forEach((task) => console.log(task)) 
