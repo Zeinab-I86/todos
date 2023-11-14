@@ -7,10 +7,15 @@ class Todo {
   todoList = []
   
   getTodos() {
-    return {task: this.task, description: this.description}
+    return {task: this.task, description: this.description }
   }
 
   addTodo(newTask) {
     this.todoList.push(newTask)
+  }
+
+
+  getTodoList() {
+    return this.todoList
   }
 }
