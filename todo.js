@@ -19,3 +19,6 @@ class Todo {
     return this.todoList
   }
 }
+
+const tasks = new Todo("Study", "Learn JavaScript")
+console.log(tasks.getTodos())
