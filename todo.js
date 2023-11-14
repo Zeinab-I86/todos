@@ -1,5 +1,3 @@
-
-
 class Todo {
   constructor(task, description) {
     this.task = task
@@ -13,7 +11,7 @@ class Todo {
   }
 
   addTodo(newTask) {
-    this.todoList.push(newTask)
+    this.todoList.push(newTask) 
   }
 
 
@@ -22,4 +20,7 @@ class Todo {
   }
 }
 
-module.exports
+const tasks = new Todo("Study", "Learn JavaScript")
+console.log(tasks.getTodos())
+
+
