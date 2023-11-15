@@ -20,7 +20,5 @@ class Todo {
   }
 }
 
-const tasks = new Todo("Study", "Learn JavaScript")
-console.log(tasks.getTodos())
 
-
+module.exports = Todo
