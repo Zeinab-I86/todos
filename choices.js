@@ -1,13 +1,27 @@
-import Todo from "./todo"
 
-const tasks = new Todo("Study", "Learn JavaScript")
-console.log(tasks.getTodos())
+import TodoNav from './todoNav.js';
 
-tasks.addTodo("Shop", "Buy milk and sugar");
-tasks.addTodo("Clean", "Do the laundry");
-console.log(tasks.getTodoList())
+const todoNav = new TodoNav();
 
-let toDos = tasks.getTodoList()
-console.log(tasks)
+export default {
+  showTodoList: () => {
+    console.log('Todo List:');
+    todoNav.todoList.forEach((item, index) => {
+      console.log(`${index + 1}. Task: ${item.task}, Description: ${item.description}`);
+    });
+  },
 
-toDos.forEach((task) = console.log(task))
+  showDoneList: () => {
+    console.log('Done List:');
+    todoNav.getDoneList().forEach((item, index) => {
+      console.log(`${index + 1}. Task: ${item.task}, Description: ${item.description}`);
+    });
+  },
+
+  addTodo: () => {
+    const task = getUserInput('Enter the task: ');
+    const description = getUserInput('Enter the description: ');
+    todoNav.addToList({ task, description });
+    console.log('Todo added successfully.');
+  },
+}
