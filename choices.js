@@ -22,6 +22,18 @@ export default {
     const task = getUserInput('Enter the task: ');
     const description = getUserInput('Enter the description: ');
     todoNav.addToList({ task, description });
-    console.log('Todo added successfully.');
+    console.log('Todo added successfully!');
   },
+
+  addTodoToTop: () => {
+    const task = getUserInput('Enter the task: ');
+    todoNav.addToTopOfList({ task });
+    console.log('Todo added to the top successfully!');
+  },
+
+  removeByName: () => {
+    const name = getUserInput('Enter the todo you want to delete: ');
+    const deletedTodo = todoNav.removeFromListByName(name);
+    console.log(`The todo ${name} successfully deleted!`);
+  }
 }
