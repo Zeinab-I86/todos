@@ -22,7 +22,7 @@ export default {
     const task = getUserInput('Enter the task: ');
     const description = getUserInput('Enter the description: ');
     todoNav.addToList({ task, description });
-    console.log('Todo added successfully!');
+    console.log('Todo successfully added!');
   },
 
   addTodoToTop: () => {
@@ -34,24 +34,24 @@ export default {
   removeByName: () => {
     const name = getUserInput('Enter the todo you want to delete: ');
     const deletedTodo = todoNav.removeFromListByName(name);
-    console.log(`The todo ${name} successfully deleted!`);
+    console.log(`The todo ${deletedTodo} successfully deleted!`);
   },
 
   moveItemToDone: () => {
     const index = parseInt(getUserInput('Enter the number of the todo that is Done: ')) - 1;
-    removeFromListAndAddToDone(index);
+    todoNav.removeFromListAndAddToDone(index);
     console.log('Todo moved to Done list successfully!');
   },
 
   moveDown: () => {
     const index = parseInt(getUserInput('Enter the number of the todo to move down: ')) - 1;
-    moveDown(index);
+    todoNav.moveDown(index);
     console.log('Todo moved down successfully!');
   },
 
   moveUp: () => {
     const index = parseInt(getUserInput('Enter the number of the todo to move up: ')) - 1;
-    moveUp(index);
+    todoNav.moveUp(index);
     console.log('Todo moved up successfully!');
   },
 };
