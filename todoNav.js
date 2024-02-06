@@ -8,7 +8,6 @@ export default class todoNav {
     this.getTodoList();
   }
 
-
   getTodoList() {
     try {
       const data = readFileSync('todoList.json', 'utf-8');
@@ -19,13 +18,10 @@ export default class todoNav {
       console.log('Error loading todo list from file:', error.message);
     }
   }
-  /*appendFileSync(
-  'message.txt', vilken fil vi vill lägga till text i
-  'here is some text\n',text vi vill lägga till, avslutas med \n för att lägga till radbrytning*/
+  
   addTodoList(todoItem) {
     const data = JSON.stringify({ todoList: this.todoList, doneList: this.doneList }, null, 2);
     const list = 'todo.txt';
-
     try {
       appendFileSync(list, `\n${data}`);
       console.log('TODO-list saved in todo.text', list);
@@ -40,14 +36,12 @@ export default class todoNav {
     return this.todoList;
   }
 
-  //3. Lägg till en sak att göra överst i listan med unshift
   addToTopOfList(todoItem) {
     todoList.unshift(todoItem);
+    this.addTodoList();
     return todoList;
   }
 
-
-  //7. Ta bort en sak baserad på dess namn
   removeFromListByName(name) {
     for (let i = 0; i < todoList.length; i++) {
       if (todoList[i].task === name) {
@@ -57,8 +51,6 @@ export default class todoNav {
     }
   }
 
-
-  //8. Ta bort en sak och lägg till den i ”har gjort”-lista
   removeFromListAndAddToDone(doneItemIndex) {
     if (!isNaN(doneItemIndex) && doneItemIndex >= 0 && doneItemIndex <= todoList.length - 1) {
       let name = todoList[doneItemIndex]
@@ -69,15 +61,12 @@ export default class todoNav {
     return doneList;
   }
 
-
-  //9. Flytta en sak till toppen av listan
   moveToTop(todoItem) {
     let item = removeFromListByIndex(todoItem)
     addToTopOfList(item);
     return todoList;
   }
 
-  //11. Flytta en sak ett steg ner i listan
   moveDown(indexOfItem) {
     if (!isNaN(indexOfItem) && indexOfItem >= 0 && indexOfItem <= todoList.length - 1) {
       let descItem = todoList[indexOfItem];
@@ -92,8 +81,6 @@ export default class todoNav {
     }
   };
 
-
-  //12. Flytta en sak ett steg upp i listan
   moveUp(indexOfItem) {
     if (!isNaN(indexOfItem) && indexOfItem >= 0 && indexOfItem <= todoList.length - 1) {
       let descItem = todoList[indexOfItem];
@@ -108,3 +95,20 @@ export default class todoNav {
     }
   }
 }
+
+/*appendFileSync(
+  'message.txt', vilken fil vi vill lägga till text i
+  'here is some text\n',text vi vill lägga till, avslutas med \n för att lägga till radbrytning
+  
+  class Student {
+
+  constructor(name, schoolClass){
+    this.name = name
+    this.schoolClass = schoolClass
+    this.schoolClass.addStudent(this)
+  }
+
+  sayHi(){
+    return `Hi! I am ${this.name} and I'm in ${this.schoolClass.name} in ${this.schoolClass.city} along with ${this.schoolClass.students.length - 1} others!`
+  }
+*/
