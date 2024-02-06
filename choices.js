@@ -2,7 +2,10 @@
 import TodoNav from './todoNav.js';
 
 const todoNav = new TodoNav();
+const input = {
+  getUserInput:
 
+}
 export default {
   showTodoList: () => {
     console.log('Todo List:');
