@@ -4,13 +4,13 @@ const prompt = require('prompt-sync')({ sigint: true });
 import TodoNav from './todoNav.js';
 
 const todoNav = new TodoNav();
-const toDoInput = {
-  getUserInput: (message) => {
-    return prompt(message);
-  },
+const toDoInput = (message) => {
+  return prompt(message);
 };
 
 export default {
+  getUserInput: getUserInput,
+
   showTodoList: () => {
     console.log('Todo List:');
     todoNav.todoList.forEach((item, index) => {
@@ -26,27 +26,27 @@ export default {
   },
 
   addTodo: () => {
-    const task = toDoInput.getUserInput('Enter a todo: ');
-    const description = toDoInput.getUserInput('Enter a description: ');
+    const task = toDoInput('Enter a todo: ');
+    const description = toDoInput('Enter a description: ');
     todoNav.addToList({ task, description });
     console.log('Todo successfully added!');
   },
 
   addToTop: () => {
-    const task = toDoInput.getUserInput('Enter the todo you want to move to the top : ');
+    const task = toDoInput('Enter the todo you want to move to the top : ');
     todoNav.addToTopOfList({ task });
     console.log('Todo moved to the top successfully!');
   },
 
 
   removeByName: () => {
-    const name = toDoInput.getUserInput('Enter the todo you want to delete: ');
+    const name = toDoInput('Enter the todo you want to delete: ');
     const deletedTodo = todoNav.removeFromListByName(name);
     console.log(`The todo ${deletedTodo} successfully deleted!`);
   },
 
   moveItemToDone: () => {
-    const index = parseInt(toDoInput.getUserInput('Enter the number of the todo that is Done: ')) - 1;
+    const index = parseInt(toDoInput('Enter the number of the todo that is Done: ')) - 1;
     const doneTodo = todoNav.todoList[index];
     todoNav.removeFromListAndAddToDone(index);
     console.log(`"${doneTodo.task}" Todo moved to Done list successfully!`);
@@ -54,13 +54,13 @@ export default {
 
 
   moveDown: () => {
-    const index = parseInt(toDoInput.getUserInput('Enter the number of the todo to move down: ')) - 1;
+    const index = parseInt(toDoInput('Enter the number of the todo to move down: ')) - 1;
     const newTodoList = todoNav.moveDown(index);
     console.log('Todo moved down successfully!');
   },
 
   moveUp: () => {
-    const index = parseInt(toDoInput.getUserInput('Enter the number of the todo to move up: ')) - 1;
+    const index = parseInt(toDoInput('Enter the number of the todo to move up: ')) - 1;
     const newTodoList = todoNav.moveUp(index);
     console.log('Todo moved up successfully!');
   },

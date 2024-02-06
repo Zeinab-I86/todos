@@ -57,7 +57,7 @@ const main = () => {
   let menuLoop = true;
   while (menuLoop) {
     todoMenu();
-    const choice = choices.getUserInput('Enter the number of your choice: ');
+    const choice = choices.toDoInput('Enter the number of your choice: ');
     menuLoop = runChoice(choice);
   }
 };
