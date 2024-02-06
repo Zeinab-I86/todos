@@ -9,7 +9,7 @@ const toDoInput = (message) => {
 };
 
 export default {
-  getUserInput: getUserInput,
+  toDoInput: toDoInput,
 
   showTodoList: () => {
     console.log('Todo List:');

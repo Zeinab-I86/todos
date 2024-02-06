@@ -24,7 +24,7 @@ export default class todoNav {
     const list = 'todo.txt';
     try {
       appendFileSync(list, `\n${data}`);
-      console.log('TODO-list saved in todo.text', list);
+      console.log('TODO-list saved in ', list);
     } catch (error) {
       console.error('Something went wrong')
     }
