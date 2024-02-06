@@ -4,11 +4,11 @@ const prompt = require('prompt-sync')({ sigint: true });
 import TodoNav from './todoNav.js';
 
 const todoNav = new TodoNav();
-const input = {
+const toDoInput = {
   getUserInput: (message) => {
     return prompt(message);
-  }
-}
+  },
+};
 export default {
   showTodoList: () => {
     console.log('Todo List:');
@@ -25,14 +25,14 @@ export default {
   },
 
   addTodo: () => {
-    const task = getUserInput('Enter the task: ');
-    const description = getUserInput('Enter the description: ');
+    const task = toDoInput.getUserInput('Enter the task: ');
+    const description = toDoInput.getUserInput('Enter the description: ');
     todoNav.addToList({ task, description });
     console.log('Todo successfully added!');
   },
 
   addTodoToTop: () => {
-    const task = getUserInput('Enter the task: ');
+    const task = toDoInput.getUserInput('Enter the task: ');
     todoNav.addToTopOfList({ task });
     console.log('Todo added to the top successfully!');
   },
