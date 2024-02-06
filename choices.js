@@ -1,10 +1,13 @@
-
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const prompt = require('prompt-sync')({ sigint: true });
 import TodoNav from './todoNav.js';
 
 const todoNav = new TodoNav();
 const input = {
-  getUserInput:
-
+  getUserInput: (message) => {
+    return prompt(message);
+  }
 }
 export default {
   showTodoList: () => {
