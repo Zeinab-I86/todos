@@ -6,15 +6,15 @@ const todoMenu = () => {
     What do you want to do?
 Enter the number of your choice!
 
-    1. Show Todo List 
-    2. Show Done List 
-    3. Add Todo 
-    4. Add Todo To Top 
-    5. Remove Todo By Name 
-    6. Move Todo To Done List 
-    7. Move Todo Down 
-    8. Move Todo Up 
-    0. Exit
+     1. Show Todo List 
+     2. Show Done List 
+     3. Add Todo 
+     4. Add Todo To Top 
+     5. Remove Todo By Name 
+     6. Move Todo To Done List 
+     7. Move Todo Down 
+     8. Move Todo Up 
+     0. Exit
 `);
 };
 const runChoice = (choice) => {
@@ -48,13 +48,20 @@ const runChoice = (choice) => {
       break;
     default:
       console.log('Please enter a valid number!');
-
-      const main = () => { }
-      while (true) {
-        todoMenu();
-      }
   }
-}
+};
+
+
+const main = () => {
+  while (true) {
+    todoMenu();
+    const choice = choices.getUserInput('Enter the number of your choice: ');
+    runChoice(choice);
+  }
+};
+
+main();
+
 
 /*("\nStart meny\n"
 "\n1. Lista av products"

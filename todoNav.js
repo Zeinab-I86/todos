@@ -1,9 +1,4 @@
-import { appendFileSync } from 'fs';
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-import { readFileSync } from 'node:fs';
-
-
+import { appendFileSync, readFileSync } from 'fs';
 
 export default class todoNav {
 
