@@ -37,9 +37,9 @@ export default class todoNav {
   }
 
   addToTopOfList(todoItem) {
-    todoList.unshift(todoItem);
+    this.todoList.unshift(todoItem);
     this.addTodoList();
-    return todoList;
+    return this.todoList;
   }
 
   removeFromListByName(name) {
