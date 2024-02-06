@@ -19,7 +19,7 @@ export default class todoNav {
     }
   }
   
-  addTodoList(todoItem) {
+  addTodoList() {
     const data = JSON.stringify({ todoList: this.todoList, doneList: this.doneList }, null, 2);
     const list = 'todo.txt';
     try {
@@ -43,55 +43,55 @@ export default class todoNav {
   }
 
   removeFromListByName(name) {
-    for (let i = 0; i < todoList.length; i++) {
-      if (todoList[i].task === name) {
-        let removed = removeFromListByIndex(i)
+    for (let i = 0; i < this.todoList.length; i++) {
+      if (this.todoList[i].task === name) {
+        let removed = this.todoList.splice(i, 1)[0];
         return removed;
       }
     }
   }
 
   removeFromListAndAddToDone(doneItemIndex) {
-    if (!isNaN(doneItemIndex) && doneItemIndex >= 0 && doneItemIndex <= todoList.length - 1) {
-      let name = todoList[doneItemIndex]
-      doneList.push(removeFromListByName(name))
+    if (!isNaN(doneItemIndex) && doneItemIndex >= 0 && doneItemIndex <= this.todoList.length - 1) {
+      let name = this.todoList[doneItemIndex];
+      this.doneList.push(this.removeFromListByName(name).task);
     } else {
       console.log('Something went wrong')
     }
-    return doneList;
+    return this.doneList;
   }
 
   moveToTop(todoItem) {
-    let item = removeFromListByIndex(todoItem)
-    addToTopOfList(item);
-    return todoList;
+    let item = this.removeFromListByName(todoItem)
+    this.addToTopOfList(item);
+    return this.todoList;
   }
 
   moveDown(indexOfItem) {
-    if (!isNaN(indexOfItem) && indexOfItem >= 0 && indexOfItem <= todoList.length - 1) {
-      let descItem = todoList[indexOfItem];
-      let ascItem = todoList[indexOfItem + 1];
-      todoList[indexOfItem + 1] = descItem
-      todoList[indexOfItem] = ascItem
-      return todoList;
+    if (!isNaN(indexOfItem) && indexOfItem >= 0 && indexOfItem <= this.todoList.length - 1) {
+      let descItem = this.todoList[indexOfItem];
+      let ascItem = this.todoList[indexOfItem + 1];
+      this.todoList[indexOfItem + 1] = descItem;
+      this.todoList[indexOfItem] = ascItem;
+      return this.todoList;
     }
     else {
-      console.log('Something went wrong')
-      return todoList;
+      console.log('Something went wrong');
+      return this.todoList;
     }
   };
 
   moveUp(indexOfItem) {
-    if (!isNaN(indexOfItem) && indexOfItem >= 0 && indexOfItem <= todoList.length - 1) {
-      let descItem = todoList[indexOfItem];
-      let ascItem = todoList[indexOfItem - 1];
-      todoList[indexOfItem - 1] = descItem
-      todoList[indexOfItem] = ascItem
-      return todoList;
+    if (!isNaN(indexOfItem) && indexOfItem >= 0 && indexOfItem <= this.todoList.length - 1) {
+      let descItem = this.todoList[indexOfItem];
+      let ascItem = this.todoList[indexOfItem - 1];
+      this.todoList[indexOfItem - 1] = descItem;
+      this.todoList[indexOfItem] = ascItem;
+      return this.todoList;
     }
     else {
-      console.log('Something went wrong')
-      return todoList;
+      console.log('Something went wrong');
+      return this.todoList;
     }
   }
 }
