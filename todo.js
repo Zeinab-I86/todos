@@ -44,24 +44,25 @@ const runChoice = (choice) => {
       choices.moveUp();
       break;
     case '0':
-      process.exit();
-      break;
+      console.log('Goodbye, See You Soon!');
+      return false;
     default:
       console.log('Please enter a valid number!');
   }
+  return true;
 };
 
 
 const main = () => {
-  while (true) {
+  let menuLoop = true;
+  while (menuLoop) {
     todoMenu();
     const choice = choices.getUserInput('Enter the number of your choice: ');
-    runChoice(choice);
+    menuLoop = runChoice(choice);
   }
 };
 
 main();
-
 
 /*("\nStart meny\n"
 "\n1. Lista av products"
